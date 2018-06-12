@@ -19,8 +19,18 @@ class CategoryCell: UICollectionViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
+    let appsCollectionView : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.blue
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
     func setupViews(){
-        print("entrou1")
-        backgroundColor = UIColor.red
+        backgroundColor = UIColor.black
+        addSubview(appsCollectionView)
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[v0]-8-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView]))
     }
 }
