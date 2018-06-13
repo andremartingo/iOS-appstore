@@ -95,6 +95,7 @@ class AppCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -103,6 +104,7 @@ class AppCell: UICollectionViewCell {
         label.text = "Disney Build It: Frozen"
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -111,6 +113,7 @@ class AppCell: UICollectionViewCell {
         label.text = "Entertainment"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.darkGray
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -119,6 +122,7 @@ class AppCell: UICollectionViewCell {
         label.text = "$3.99"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.darkGray
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -132,10 +136,29 @@ class AppCell: UICollectionViewCell {
         addSubview(categoryLabel)
         addSubview(priceLabel)
         
-        logoImageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
-        nameLabel.frame = CGRect(x: 0, y: frame.width + 2, width: frame.width, height: 40)
-        categoryLabel.frame = CGRect(x: 0, y: frame.width + 38 , width: frame.width, height: 20)
-        priceLabel.frame = CGRect(x: 0, y: frame.width + 56 , width: frame.width, height: 20)
+        //Logo Constraints
+        logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        logoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: frame.width).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
+
+        //NameLabel Constraints
+        nameLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 2).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        nameLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        nameLabel.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
+        
+        //Category Constraints
+        categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 38).isActive = true
+        categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        categoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        categoryLabel.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
+
+        //Price Constraints
+        priceLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 56).isActive = true
+        priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        priceLabel.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
     }
     
 }
