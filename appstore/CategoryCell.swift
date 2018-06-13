@@ -32,20 +32,35 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
         return collectionView
     }()
     
+    let dividerLine : UIView = {
+        let view = UIView()
+                view.backgroundColor = UIColor(white: 0.4,alpha: 0.4)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     func setupViews(){
         backgroundColor = UIColor.clear
         
+        //Setup CollectionView
+
         addSubview(appsCollectionView)
+        
         appsCollectionView.register(AppCell.self, forCellWithReuseIdentifier: appCellId)
         appsCollectionView.delegate = self
         appsCollectionView.dataSource = self
         
-        NSLayoutConstraint.activate([
-            appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
-            appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
-            ])
+        appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8).isActive = true
+        appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+        
+        //Setup DividerLine
+        addSubview(dividerLine)
+        dividerLine.topAnchor.constraint(equalTo: appsCollectionView.bottomAnchor, constant: 0).isActive = true
+        dividerLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        dividerLine.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -56,7 +71,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appCellId, for: indexPath) as! AppCell
         return cell
     }
- 
+    
     //AppCell Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: frame.height)
@@ -91,6 +106,22 @@ class AppCell: UICollectionViewCell {
         return label
     }()
     
+    let categoryLabel: UILabel = {
+        let label =  UILabel()
+        label.text = "Entertainment"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.darkGray
+        return label
+    }()
+    
+    let priceLabel: UILabel = {
+        let label =  UILabel()
+        label.text = "$3.99"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.darkGray
+        return label
+    }()
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -98,8 +129,13 @@ class AppCell: UICollectionViewCell {
     func setupViews(){
         addSubview(logoImageView)
         addSubview(nameLabel)
+        addSubview(categoryLabel)
+        addSubview(priceLabel)
+        
         logoImageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.width)
         nameLabel.frame = CGRect(x: 0, y: frame.width + 2, width: frame.width, height: 40)
+        categoryLabel.frame = CGRect(x: 0, y: frame.width + 38 , width: frame.width, height: 20)
+        priceLabel.frame = CGRect(x: 0, y: frame.width + 56 , width: frame.width, height: 20)
     }
     
 }
