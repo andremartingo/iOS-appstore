@@ -21,6 +21,14 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
         fatalError("init(coder:) has not been implemented")
     }
     
+    let sectionLabel: UILabel = {
+        let label =  UILabel()
+        label.text = "Best New Apps"
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     //Collection View Inside CategoryCell
     let appsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -32,6 +40,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
         return collectionView
     }()
     
+    
     let dividerLine : UIView = {
         let view = UIView()
                 view.backgroundColor = UIColor(white: 0.4,alpha: 0.4)
@@ -42,21 +51,28 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     func setupViews(){
         backgroundColor = UIColor.clear
         
-        //Setup CollectionView
-
+        addSubview(sectionLabel)
         addSubview(appsCollectionView)
+        addSubview(dividerLine)
         
+        //SectionLabel Constraints
+        sectionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        sectionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+
+        sectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        sectionLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        //CollectionView Constraints
         appsCollectionView.register(AppCell.self, forCellWithReuseIdentifier: appCellId)
         appsCollectionView.delegate = self
         appsCollectionView.dataSource = self
         
-        appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        appsCollectionView.topAnchor.constraint(equalTo: sectionLabel.bottomAnchor, constant: 8).isActive = true
         appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8).isActive = true
         appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
         
-        //Setup DividerLine
-        addSubview(dividerLine)
+        //DividerLine Constraints
         dividerLine.topAnchor.constraint(equalTo: appsCollectionView.bottomAnchor, constant: 0).isActive = true
         dividerLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         dividerLine.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
@@ -74,7 +90,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     
     //AppCell Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: frame.height)
+        return CGSize(width: 100, height: frame.height-30)
     }
     
     //Collection View Margin
