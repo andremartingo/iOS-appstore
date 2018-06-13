@@ -25,8 +25,8 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     let appsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
         collectionView.backgroundColor = UIColor.clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -37,12 +37,15 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
         
         addSubview(appsCollectionView)
         appsCollectionView.register(AppCell.self, forCellWithReuseIdentifier: appCellId)
-        
         appsCollectionView.delegate = self
         appsCollectionView.dataSource = self
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appsCollectionView]))
+        NSLayoutConstraint.activate([
+            appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
+            appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0)
+            ])
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,7 +64,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     
     //Collection View Margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 14, 0, 14)
+        return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
 }
 
