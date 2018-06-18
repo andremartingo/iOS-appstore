@@ -12,6 +12,14 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     
     private let appCellId = "appCellId"
     
+    var category: Category? {
+        didSet{
+            if let name = category?.name{
+                sectionLabel.text = name
+            }
+        }
+    }
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         setupViews()
@@ -80,11 +88,15 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if let items = category?.apps?.count{
+            return items
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appCellId, for: indexPath) as! AppCell
+        cell.app = category?.apps?[indexPath.item]
         return cell
     }
     
@@ -103,6 +115,25 @@ class AppCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         setupViews()
+    }
+    
+    var app: App?{
+        didSet{
+            if let name = app?.name{
+                nameLabel.text = name
+            }
+            categoryLabel.text = app?.category
+            
+            if let price = app?.price{
+                priceLabel.text = "$\(price)"
+            } else {
+                priceLabel.text = ""
+            }
+            
+            if let imageName = app?.imageName{
+                logoImageView.image = UIImage(named: imageName)
+            }
+        }
     }
     
     let logoImageView: UIImageView = {
