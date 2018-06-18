@@ -15,6 +15,8 @@
 		3018CAB020CF13F900CCA588 /* appstoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018CAAF20CF13F900CCA588 /* appstoreTests.swift */; };
 		3018CABB20CF13FA00CCA588 /* appstoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018CABA20CF13FA00CCA588 /* appstoreUITests.swift */; };
 		306D8B5E20CF220100F86C3C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306D8B5D20CF220100F86C3C /* CategoryCell.swift */; };
+		307585AA20D79F5F0030F5D3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585A920D79F5F0030F5D3 /* Category.swift */; };
+		307585AC20D79F680030F5D3 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585AB20D79F680030F5D3 /* App.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		3018CABA20CF13FA00CCA588 /* appstoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appstoreUITests.swift; sourceTree = "<group>"; };
 		3018CABC20CF13FA00CCA588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		306D8B5D20CF220100F86C3C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		307585A920D79F5F0030F5D3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		307585AB20D79F680030F5D3 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		3018CA9920CF13F900CCA588 /* appstore */ = {
 			isa = PBXGroup;
 			children = (
+				307585A820D79F4E0030F5D3 /* Model */,
 				3018CA9A20CF13F900CCA588 /* AppDelegate.swift */,
 				3018CA9C20CF13F900CCA588 /* FeaturedAppsController.swift */,
 				3018CA9E20CF13F900CCA588 /* Main.storyboard */,
@@ -126,6 +131,15 @@
 				3018CABC20CF13FA00CCA588 /* Info.plist */,
 			);
 			path = appstoreUITests;
+			sourceTree = "<group>";
+		};
+		307585A820D79F4E0030F5D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				307585A920D79F5F0030F5D3 /* Category.swift */,
+				307585AB20D79F680030F5D3 /* App.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +279,8 @@
 				3018CA9D20CF13F900CCA588 /* FeaturedAppsController.swift in Sources */,
 				3018CA9B20CF13F900CCA588 /* AppDelegate.swift in Sources */,
 				306D8B5E20CF220100F86C3C /* CategoryCell.swift in Sources */,
+				307585AC20D79F680030F5D3 /* App.swift in Sources */,
+				307585AA20D79F5F0030F5D3 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
