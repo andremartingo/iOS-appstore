@@ -17,7 +17,6 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = FeaturedAppsPresenter(repo: APIRepository())
         appCategories = presenter.getFeaturedCategories()
         // Do any additional setup after loading the view, typically from a nib.
         collectionView?.backgroundColor = UIColor.white

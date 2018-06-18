@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let layout = UICollectionViewFlowLayout()
         let featuredAppsController = FeaturedAppsController(collectionViewLayout: layout)
+        let presenter = FeaturedAppsPresenter(repository: APIRepository())
+        featuredAppsController.presenter = presenter
         window?.rootViewController = UINavigationController(rootViewController: featuredAppsController)
         // Override point for customization after application launch.
         return true

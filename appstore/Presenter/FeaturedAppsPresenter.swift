@@ -12,8 +12,8 @@ class FeaturedAppsPresenter{
     
     var repository : Repository
     
-    init(repo: Repository) {
-        repository = repo
+    init(repository: Repository) {
+        self.repository = repository
     }
     
     func getFeaturedCategories() -> [Category]{
