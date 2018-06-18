@@ -17,7 +17,12 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        appCategories = presenter.getFeaturedCategories()
+        presenter.getFeaturedCategories { (categories, error) in
+            self.appCategories = categories
+            performUIUpdatesOnMain{
+                self.collectionView?.reloadData()
+            }
+        }
         // Do any additional setup after loading the view, typically from a nib.
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
@@ -38,6 +43,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
         return CGSize(width: view.frame.width, height: 230)
     }
 }

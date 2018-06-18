@@ -121,7 +121,19 @@ class AppCell: UICollectionViewCell {
         didSet{
             if let name = app?.name{
                 nameLabel.text = name
+                
+                let rect = NSString(string: name).boundingRect(with: CGSize(width: frame.width, height: 1000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)], context: nil)
+                //If rect.height > 20 = Two Lines Description
+                if rect.height > 20 {
+                    categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 38).isActive = true
+                    priceLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 56).isActive = true
+                } else {
+                    nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+                    categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 22).isActive = true
+                    priceLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
+                }
             }
+            
             categoryLabel.text = app?.category
             
             if let price = app?.price{

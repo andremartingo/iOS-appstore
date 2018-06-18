@@ -20,6 +20,7 @@
 		307585AE20D7AAFC0030F5D3 /* FeaturedAppsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585AD20D7AAFC0030F5D3 /* FeaturedAppsPresenter.swift */; };
 		307585B020D7AB6A0030F5D3 /* APIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585AF20D7AB6A0030F5D3 /* APIRepository.swift */; };
 		307585B220D7AB850030F5D3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585B120D7AB850030F5D3 /* Repository.swift */; };
+		307585B820D7C81C0030F5D3 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585B720D7C81C0030F5D3 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		307585AD20D7AAFC0030F5D3 /* FeaturedAppsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedAppsPresenter.swift; sourceTree = "<group>"; };
 		307585AF20D7AB6A0030F5D3 /* APIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepository.swift; sourceTree = "<group>"; };
 		307585B120D7AB850030F5D3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		307585B720D7C81C0030F5D3 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				307585B420D7AC870030F5D3 /* Presenter */,
 				307585B320D7AC790030F5D3 /* Repository */,
 				307585A820D79F4E0030F5D3 /* Model */,
+				307585B720D7C81C0030F5D3 /* GCDBlackBox.swift */,
 			);
 			path = appstore;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				307585B020D7AB6A0030F5D3 /* APIRepository.swift in Sources */,
 				307585AC20D79F680030F5D3 /* App.swift in Sources */,
 				307585AE20D7AAFC0030F5D3 /* FeaturedAppsPresenter.swift in Sources */,
+				307585B820D7C81C0030F5D3 /* GCDBlackBox.swift in Sources */,
 				307585AA20D79F5F0030F5D3 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
