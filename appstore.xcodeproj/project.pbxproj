@@ -22,6 +22,8 @@
 		307585B220D7AB850030F5D3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585B120D7AB850030F5D3 /* Repository.swift */; };
 		307585B820D7C81C0030F5D3 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585B720D7C81C0030F5D3 /* GCDBlackBox.swift */; };
 		307585BB20D7E65D0030F5D3 /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585BA20D7E65D0030F5D3 /* AppCell.swift */; };
+		307585BD20D7E70A0030F5D3 /* LargeCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585BC20D7E70A0030F5D3 /* LargeCategoryCell.swift */; };
+		307585BF20D7EA130030F5D3 /* LargeAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585BE20D7EA130030F5D3 /* LargeAppCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		307585B120D7AB850030F5D3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		307585B720D7C81C0030F5D3 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		307585BA20D7E65D0030F5D3 /* AppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
+		307585BC20D7E70A0030F5D3 /* LargeCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryCell.swift; sourceTree = "<group>"; };
+		307585BE20D7EA130030F5D3 /* LargeAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeAppCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,8 @@
 			children = (
 				306D8B5D20CF220100F86C3C /* CategoryCell.swift */,
 				307585BA20D7E65D0030F5D3 /* AppCell.swift */,
+				307585BC20D7E70A0030F5D3 /* LargeCategoryCell.swift */,
+				307585BE20D7EA130030F5D3 /* LargeAppCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -332,10 +338,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3018CA9D20CF13F900CCA588 /* FeaturedAppsController.swift in Sources */,
+				307585BF20D7EA130030F5D3 /* LargeAppCell.swift in Sources */,
 				3018CA9B20CF13F900CCA588 /* AppDelegate.swift in Sources */,
 				306D8B5E20CF220100F86C3C /* CategoryCell.swift in Sources */,
 				307585B220D7AB850030F5D3 /* Repository.swift in Sources */,
 				307585B020D7AB6A0030F5D3 /* APIRepository.swift in Sources */,
+				307585BD20D7E70A0030F5D3 /* LargeCategoryCell.swift in Sources */,
 				307585BB20D7E65D0030F5D3 /* AppCell.swift in Sources */,
 				307585AC20D79F680030F5D3 /* App.swift in Sources */,
 				307585AE20D7AAFC0030F5D3 /* FeaturedAppsPresenter.swift in Sources */,
