@@ -11,20 +11,19 @@ import Foundation
 class APIRepository {
     
     //ASK how to use repo pattern reutring [Category]
-    func getFeaturedCategories() -> [Category] {
-        var featuredCategories = [Category]()
-        getFeaturedCategories { (categories, error ) in
-            if let result = categories{
-                featuredCategories = result
+    func getFeaturedCategories() -> FeatureApp {
+        var featuredApp = FeatureApp()
+        getFeaturedCategories { (feature, error ) in
+            if let result = feature{
+                featuredApp = result
             }
         }
-        return featuredCategories
+        return featuredApp
     }
     
     
-    func getFeaturedCategories(_ completionHandlergetFeaturedCategories: @escaping (_ result: [Category]?, _ error: NSError?) -> Void){
+    func getFeaturedCategories(_ completionHandlergetFeaturedCategories: @escaping (_ result: FeatureApp?, _ error: NSError?) -> Void){
         let url :String = "https://api.letsbuildthatapp.com/appstore/featured"
-        var categories = [Category]()
         URLSession.shared.dataTask(with: URL(string: url)!){ (data,response,error) -> Void in
             /* GUARD: Was there an error? */
             guard (error == nil) else {
@@ -46,13 +45,15 @@ class APIRepository {
             
             do{
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
-                for object in json["categories"] as! [[String: AnyObject]]{
-                    let category = Category()
-                    category.setValuesForKeys(object)
-                    category.name = object["name"] as! String 
-                    categories.append(category)
-                }
-                completionHandlergetFeaturedCategories(categories, nil)
+//                for object in json["categories"] as! [[String: AnyObject]]{
+//                    let category = Category()
+//                    category.setValuesForKeys(object)
+//                    category.name = object["name"] as! String
+//                    categories.append(category)
+//                }
+                let featureApp = FeatureApp()
+                featureApp.setValuesForKeys(json as! [String:AnyObject])
+                completionHandlergetFeaturedCategories(featureApp, nil)
             }
             catch let err{
                 print(err)

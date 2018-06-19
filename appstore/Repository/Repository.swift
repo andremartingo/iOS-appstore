@@ -8,5 +8,5 @@
 
 
 protocol Repository {
-    func getFeaturedCategories() -> [Category]
+    func getFeaturedCategories() -> FeatureApp
 }

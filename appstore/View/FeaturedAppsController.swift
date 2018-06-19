@@ -14,13 +14,15 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     let largeCellId = "largeCellId"
     let headerId = "headerId"
     
+    var featureApp: FeatureApp?
     var appCategories: [Category]?
     var presenter: FeaturedAppsPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.getFeaturedCategories { (categories, error) in
-            self.appCategories = categories
+        presenter.getFeaturedCategories { (result, error) in
+            self.featureApp = result
+            self.appCategories = result?.appCategories
             performUIUpdatesOnMain{
                 self.collectionView?.reloadData()
             }
@@ -66,7 +68,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! Header
-        header.category = appCategories?.first
+        header.category = featureApp?.bannerCategory
         return header
     }
 }
