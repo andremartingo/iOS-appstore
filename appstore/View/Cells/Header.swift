@@ -1,5 +1,5 @@
 //
-//  LargeCategoryCell.swift
+//  Header.swift
 //  appstore
 //
 //  Created by André Martingo on 18/06/2018.
@@ -8,17 +8,16 @@
 
 import UIKit
 
-class LargeCategoryCell: CategoryCell {
-    
-    private let largeAppCellId = "largeAppCellId"
+class Header: CategoryCell {
+    private let bannerCellId = "bannerCellId"
     
     override func setupViews() {
         super.setupViews()
-        appsCollectionView.register(LargeAppCell.self, forCellWithReuseIdentifier: largeAppCellId)
+        appsCollectionView.register(BannerCell.self, forCellWithReuseIdentifier: bannerCellId)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeAppCellId, for: indexPath) as! LargeAppCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannerCellId, for: indexPath) as! BannerCell
         cell.app = category?.apps?[indexPath.item]
         return cell
     }
@@ -26,5 +25,4 @@ class LargeCategoryCell: CategoryCell {
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: frame.height-32)
     }
-
 }

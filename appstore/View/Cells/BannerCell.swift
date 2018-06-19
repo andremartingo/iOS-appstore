@@ -1,12 +1,12 @@
 //
-//  LargeAppCell.swift
+//  BannerCell.swift
 //  appstore
 //
-//  Created by André Martingo on 18/06/2018.
+//  Created by André Martingo on 19/06/2018.
 //  Copyright © 2018 André Martingo. All rights reserved.
 //
 
-class LargeAppCell: AppCell {
+class BannerCell: AppCell {
     override func setupViews() {
         logoImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         addSubview(logoImageView)
@@ -18,4 +18,3 @@ class LargeAppCell: AppCell {
         logoImageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
     }
 }
-

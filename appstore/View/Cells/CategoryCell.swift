@@ -17,6 +17,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
             if let name = category?.name{
                 sectionLabel.text = name
             }
+            appsCollectionView.reloadData()
         }
     }
     
