@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Header: CategoryCell {
+class HeaderCell: CategoryCell {
     private let bannerCellId = "bannerCellId"
     
     override func setupViews() {

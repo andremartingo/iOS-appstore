@@ -26,7 +26,7 @@
 		307585BB20D7E65D0030F5D3 /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585BA20D7E65D0030F5D3 /* AppCell.swift */; };
 		307585BD20D7E70A0030F5D3 /* LargeCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585BC20D7E70A0030F5D3 /* LargeCategoryCell.swift */; };
 		307585BF20D7EA130030F5D3 /* LargeAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307585BE20D7EA130030F5D3 /* LargeAppCell.swift */; };
-		30E87EE320D7F6DA008F09A7 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E87EE220D7F6DA008F09A7 /* Header.swift */; };
+		30E87EE320D7F6DA008F09A7 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E87EE220D7F6DA008F09A7 /* HeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,7 @@
 		307585BA20D7E65D0030F5D3 /* AppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
 		307585BC20D7E70A0030F5D3 /* LargeCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCategoryCell.swift; sourceTree = "<group>"; };
 		307585BE20D7EA130030F5D3 /* LargeAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeAppCell.swift; sourceTree = "<group>"; };
-		30E87EE220D7F6DA008F09A7 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		30E87EE220D7F6DA008F09A7 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,7 @@
 				307585BA20D7E65D0030F5D3 /* AppCell.swift */,
 				307585BC20D7E70A0030F5D3 /* LargeCategoryCell.swift */,
 				307585BE20D7EA130030F5D3 /* LargeAppCell.swift */,
-				30E87EE220D7F6DA008F09A7 /* Header.swift */,
+				30E87EE220D7F6DA008F09A7 /* HeaderCell.swift */,
 				3010355020D8EDDB008F847D /* BannerCell.swift */,
 			);
 			path = Cells;
@@ -347,7 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3018CA9D20CF13F900CCA588 /* FeaturedAppsController.swift in Sources */,
-				30E87EE320D7F6DA008F09A7 /* Header.swift in Sources */,
+				30E87EE320D7F6DA008F09A7 /* HeaderCell.swift in Sources */,
 				307585BF20D7EA130030F5D3 /* LargeAppCell.swift in Sources */,
 				3018CA9B20CF13F900CCA588 /* AppDelegate.swift in Sources */,
 				302D328420D9A9C100BEADA8 /* FeatureApp.swift in Sources */,
