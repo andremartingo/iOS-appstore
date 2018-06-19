@@ -19,6 +19,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     var presenter: FeaturedAppsPresenter!
     
     override func viewDidLoad() {
+        navigationItem.title = "Feature Apps"
         super.viewDidLoad()
         presenter.getFeaturedCategories { (result, error) in
             self.featureApp = result
@@ -63,7 +64,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     
     //MARK: HEADER
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 150)
+        return CGSize(width: view.frame.width, height: 120)
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
