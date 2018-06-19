@@ -17,7 +17,7 @@ class Header: CategoryCell {
         appsCollectionView.dataSource = self
         appsCollectionView.register(BannerCell.self, forCellWithReuseIdentifier: bannerCellId)
         addSubview(appsCollectionView)
-        appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8).isActive = true
         appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
