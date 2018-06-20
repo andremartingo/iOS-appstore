@@ -12,6 +12,8 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     
     private let appCellId = "appCellId"
     
+    var featureAppsViewController : FeaturedAppsController?
+    
     var category: Category? {
         didSet{
             if let name = category?.name{
@@ -109,6 +111,12 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
     //Collection View Margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let app = category?.apps?[indexPath.item] {
+            featureAppsViewController?.showDetailAppController(app: app)
+        }
     }
 }
 
