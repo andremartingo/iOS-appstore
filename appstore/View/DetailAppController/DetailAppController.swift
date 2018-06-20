@@ -12,6 +12,7 @@ class DetailAppController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = UIColor.blue
+        collectionView?.backgroundColor = UIColor.white
+        
     }
 }
