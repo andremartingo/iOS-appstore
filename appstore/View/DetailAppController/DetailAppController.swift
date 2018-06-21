@@ -12,6 +12,12 @@ class DetailAppController: UICollectionViewController,UICollectionViewDelegateFl
     
     private let detailHeaderId = "detailHeaderId"
     
+    var app : App?{
+        didSet{
+            navigationItem.title = app?.name
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.delegate = self

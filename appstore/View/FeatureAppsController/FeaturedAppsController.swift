@@ -38,9 +38,22 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     func showDetailAppController(app: App){
         let layout = UICollectionViewFlowLayout()
         let appDetailController = DetailAppController(collectionViewLayout: layout)
+        appDetailController.app = app
         navigationController?.pushViewController(appDetailController, animated: true)
     }
     
+    //MARK: HEADER
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 120)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HeaderCell
+        header.category = featureApp?.bannerCategory
+        return header
+    }
+    
+    //MARK: Cells
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = appCategories?.count{
             return count
@@ -68,17 +81,6 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
             return CGSize(width: view.frame.width, height: 160 )
         }
         return CGSize(width: view.frame.width, height: 230)
-    }
-    
-    //MARK: HEADER
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HeaderCell
-        header.category = featureApp?.bannerCategory
-        return header
     }
 }
 

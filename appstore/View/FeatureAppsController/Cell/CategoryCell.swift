@@ -32,6 +32,8 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,UICollectionV
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Properties
+    
     let sectionLabel: UILabel = {
         let label =  UILabel()
         label.text = "Best New Apps"
