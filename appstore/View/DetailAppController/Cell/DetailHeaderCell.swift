@@ -10,11 +10,11 @@ import UIKit
 
 class DetailHeaderCell: UICollectionViewCell {
     
-    let logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
+//    let logoImageView: UIImageView = {
+//        let imageView = UIImageView()
+//        imageView.contentMode = .scaleAspectFill
+//        return imageView
+//    }()
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -26,7 +26,7 @@ class DetailHeaderCell: UICollectionViewCell {
     }
     
     func setupViews(){
-        backgroundColor = UIColor.blue
+        backgroundColor = UIColor.red
 //        addSubview(logoImageView)
     }
 }
