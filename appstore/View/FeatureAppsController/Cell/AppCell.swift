@@ -39,6 +39,8 @@ class AppCell: UICollectionViewCell {
         return label
     }()
     
+    var nameHeightConstraint: NSLayoutConstraint?
+    
     let categoryLabel: UILabel = {
         let label =  UILabel()
         label.text = "Entertainment"
@@ -66,7 +68,7 @@ class AppCell: UICollectionViewCell {
         addSubview(nameLabel)
         addSubview(categoryLabel)
         addSubview(priceLabel)
-        
+                
         //Logo Constraints
         logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         logoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
@@ -76,7 +78,7 @@ class AppCell: UICollectionViewCell {
         //NameLabel Constraints
         nameLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 2).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        self.nameHeightConstraint = nameLabel.heightAnchor.constraint(equalToConstant: 40)
         nameLabel.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
         
         //Category Constraints
@@ -103,7 +105,7 @@ class AppCell: UICollectionViewCell {
                 categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 38).isActive = true
                 priceLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 56).isActive = true
             } else {
-                nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+                nameHeightConstraint?.constant = 20
                 categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 22).isActive = true
                 priceLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40).isActive = true
             }
