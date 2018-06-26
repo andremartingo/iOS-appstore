@@ -8,22 +8,21 @@
 
 import UIKit
 
-class DetailAppView: UIView{
-    
+class DetailAppView: UIView {
+
     private let detailHeaderId = "detailHeaderId"
 
-
-    override init(frame: CGRect){
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    let appsCollectionView : UICollectionView = {
+
+    let appsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -31,13 +30,12 @@ class DetailAppView: UIView{
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
-    
-    
+
     func setupViews() {
         addSubview(appsCollectionView)
     }
-    
-    func setupConstraints(){
+
+    func setupConstraints() {
         //CollectionView Constraints
         appsCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         appsCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true

@@ -9,15 +9,15 @@
 import UIKit
 
 class DetailHeaderCell: UICollectionViewCell {
-    
-    var app : App? {
-        didSet{
+
+    var app: App? {
+        didSet {
             if let imageName = app?.imageName {
                 logoImageView.image = UIImage(named: imageName)
             }
         }
     }
-    
+
     let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -25,22 +25,22 @@ class DetailHeaderCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    override init(frame: CGRect){
+
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         addSubview(logoImageView)
     }
-    
-    func setupConstraints(){
+
+    func setupConstraints() {
         logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14).isActive = true
         logoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true

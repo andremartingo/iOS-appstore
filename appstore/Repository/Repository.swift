@@ -6,7 +6,6 @@
 //  Copyright © 2018 André Martingo. All rights reserved.
 //
 
-
 protocol Repository {
     func getFeaturedCategories() -> FeatureApp
 }

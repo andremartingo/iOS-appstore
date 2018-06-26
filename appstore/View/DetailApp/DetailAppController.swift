@@ -9,18 +9,17 @@
 import UIKit
 
 class DetailAppController: UIViewController {
-    
+
     private let detailHeaderId = "detailHeaderId"
     var mainView: DetailAppView!
-    var mainSource : DetailAppSource?
+    var mainSource: DetailAppSource?
 
-    
-    var app : App?{
-        didSet{
+    var app: App? {
+        didSet {
             navigationItem.title = app?.name
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = DetailAppView(frame: UIScreen.main.bounds)

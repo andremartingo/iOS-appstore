@@ -21,9 +21,9 @@ class BannerCell: AppCell {
         logoImageView.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
     }
-    
+
     override func populateViews() {
-        if let imageName = app?.imageName{
+        if let imageName = app?.imageName {
             logoImageView.image = UIImage(named: imageName)
         }
     }

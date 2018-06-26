@@ -8,17 +8,17 @@
 
 import Foundation
 
-class FeaturedAppsPresenter{
-    
-    let repository : APIRepository
-    
+class FeaturedAppsPresenter {
+
+    let repository: APIRepository
+
     init(repository: APIRepository) {
         self.repository = repository
     }
-    
-    func getFeaturedCategories(_ completionHandlergetFeaturedCategories: @escaping (_ result: FeatureApp?, _ error: NSError?) -> Void){
+
+    func getFeaturedCategories(_ completionHandlergetFeaturedCategories: @escaping (_ result: FeatureApp?, _ error: NSError?) -> Void) {
         repository.getFeaturedCategories { (result, error) in
-            completionHandlergetFeaturedCategories(result,error)
+            completionHandlergetFeaturedCategories(result, error)
         }
     }
 }
