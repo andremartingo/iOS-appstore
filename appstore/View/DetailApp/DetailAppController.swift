@@ -11,7 +11,7 @@ import UIKit
 class DetailAppController: UIViewController {
     
     private let detailHeaderId = "detailHeaderId"
-    var mainView: DetailAppView {return self.view as! DetailAppView}
+    var mainView: DetailAppView!
     var mainSource : DetailAppSource?
 
     
@@ -23,12 +23,8 @@ class DetailAppController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = DetailAppView(frame: UIScreen.main.bounds)
+        mainView = DetailAppView(frame: UIScreen.main.bounds)
+        view = mainView
         self.mainSource = DetailAppSource(collection: mainView.appsCollectionView, app: app!)
-        mainView.appsCollectionView.delegate = mainSource
-        mainView.appsCollectionView.dataSource = mainSource
-        mainView.appsCollectionView.register(DetailHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: detailHeaderId)
-         mainView.appsCollectionView.register(DetailHeaderCell.self, forCellWithReuseIdentifier: detailHeaderId)
-
     }
 }

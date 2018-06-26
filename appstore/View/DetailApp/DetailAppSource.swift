@@ -12,20 +12,27 @@ import Foundation
 
 class DetailAppSource: NSObject,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
     
-    var collectionView: UICollectionView
+    let collectionView: UICollectionView
+    
     private let detailHeaderId = "detailHeaderId"
     
-    var app: App
-
+    let app: App
     
     init(collection: UICollectionView, app: App) {
         self.collectionView = collection
         self.app = app
+        super.init()
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.register(DetailHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: detailHeaderId)
+        self.collectionView.register(DetailHeaderCell.self, forCellWithReuseIdentifier: detailHeaderId)
+        
     }
     
     //MARK: HEADER
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: detailHeaderId, for: indexPath) as! DetailHeaderCell
+        header.app = app
         return header
     }
     

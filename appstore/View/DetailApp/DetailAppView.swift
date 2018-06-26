@@ -17,7 +17,6 @@ class DetailAppView: UIView{
         super.init(frame: frame)
         setupViews()
         setupConstraints()
-        self.backgroundColor = UIColor.blue
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,7 +27,7 @@ class DetailAppView: UIView{
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.clear
+        collectionView.backgroundColor = UIColor.white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -40,9 +39,9 @@ class DetailAppView: UIView{
     
     func setupConstraints(){
         //CollectionView Constraints
-        appsCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        appsCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
         appsCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        appsCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 8).isActive = true
+        appsCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         appsCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
     }
 

@@ -10,7 +10,7 @@ import Foundation
 
 class FeaturedAppsPresenter{
     
-    var repository : APIRepository
+    let repository : APIRepository
     
     init(repository: APIRepository) {
         self.repository = repository
