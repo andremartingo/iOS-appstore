@@ -26,6 +26,12 @@ class DetailHeaderCell: UICollectionViewCell {
         return imageView
     }()
 
+    let segmentedController: UISegmentedControl = {
+        let segmentedController = UISegmentedControl(items: ["Details", "Reviews", "Related"])
+        segmentedController.translatesAutoresizingMaskIntoConstraints = false
+        return segmentedController
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -38,6 +44,7 @@ class DetailHeaderCell: UICollectionViewCell {
 
     func setupViews() {
         addSubview(logoImageView)
+        addSubview(segmentedController)
     }
 
     func setupConstraints() {
@@ -45,5 +52,10 @@ class DetailHeaderCell: UICollectionViewCell {
         logoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+
+        segmentedController.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8).isActive = true
+        segmentedController.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
+        segmentedController.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
+        segmentedController.heightAnchor.constraint(equalToConstant: 34).isActive = true
     }
 }
