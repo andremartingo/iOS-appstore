@@ -12,15 +12,15 @@ class DetailHeaderCell: UICollectionViewCell {
 
     var app: App? {
         didSet {
-            guard let imageName = app?.imageName else {
-                return assertionFailure()
+            if let imageName = app?.imageName {
+                logoImageView.image = UIImage(named: imageName)
             }
-            guard let name = app?.name else {
-                return assertionFailure()
+            if let name = app?.name {
+                nameLabel.text = name
             }
-
-            logoImageView.image = UIImage(named: imageName)
-            nameLabel.text = name
+            if let price = app?.price?.stringValue {
+                buyButton.setTitle("$\(price)", for: .normal)
+            }
         }
     }
 
@@ -28,6 +28,8 @@ class DetailHeaderCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = UIColor.red
+        imageView.layer.cornerRadius = 16
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -48,6 +50,23 @@ class DetailHeaderCell: UICollectionViewCell {
         return label
     }()
 
+    let buyButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("BUY", for: .normal)
+        button.layer.borderColor = UIColor(red: 0, green: 129/255, blue: 250/255, alpha: 1).cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
+    let dividerLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.4, alpha: 0.4)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -62,6 +81,8 @@ class DetailHeaderCell: UICollectionViewCell {
         addSubview(logoImageView)
         addSubview(segmentedController)
         addSubview(nameLabel)
+        addSubview(buyButton)
+        addSubview(dividerLine)
     }
 
     func setupConstraints() {
@@ -79,6 +100,15 @@ class DetailHeaderCell: UICollectionViewCell {
         nameLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 8).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
+        buyButton.bottomAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 0).isActive = true
+        buyButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        buyButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        buyButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+
+        dividerLine.topAnchor.constraint(equalTo: segmentedController.bottomAnchor, constant: 5).isActive = true
+        dividerLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        dividerLine.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
 
     }
 }

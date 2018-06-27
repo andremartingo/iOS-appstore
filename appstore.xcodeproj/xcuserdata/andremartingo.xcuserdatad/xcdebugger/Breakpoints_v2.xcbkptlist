@@ -2,4 +2,70 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appstore/View/DetailApp/Cell/DetailHeaderCell.swift"
+            timestampString = "551781352.512544"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "app"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appstore.DetailHeaderCell.init(frame: __C.CGRect) -&gt; appstore.DetailHeaderCell"
+                  moduleName = "appstore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andremartingo/Development/Swift/appstore/appstore/View/DetailApp/Cell/DetailHeaderCell.swift"
+                  timestampString = "551781096.640671"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appstore.DetailHeaderCell.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;appstore.DetailHeaderCell&gt;"
+                  moduleName = "appstore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andremartingo/Development/Swift/appstore/appstore/View/DetailApp/Cell/DetailHeaderCell.swift"
+                  timestampString = "551781096.643066"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appstore/View/DetailApp/Cell/DetailHeaderCell.swift"
+            timestampString = "551781352.513083"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "app"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
