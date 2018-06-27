@@ -106,7 +106,7 @@ class DetailHeaderCell: UICollectionViewCell {
         buyButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
         buyButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
-        dividerLine.topAnchor.constraint(equalTo: segmentedController.bottomAnchor, constant: 5).isActive = true
+        dividerLine.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
         dividerLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         dividerLine.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
 

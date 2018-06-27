@@ -14,6 +14,7 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
     let collectionView: UICollectionView
 
     private let detailHeaderId = "detailHeaderId"
+    private let screenshotId = "screenshotId"
 
     let app: App
 
@@ -24,7 +25,7 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(DetailHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: detailHeaderId)
-        self.collectionView.register(DetailHeaderCell.self, forCellWithReuseIdentifier: detailHeaderId)
+        self.collectionView.register(ScreenshotsCell.self, forCellWithReuseIdentifier: screenshotId)
 
     }
 
@@ -33,24 +34,27 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: detailHeaderId, for: indexPath) as? DetailHeaderCell else {
             return UICollectionReusableView()
         }
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: detailHeaderId, for: indexPath) as! DetailHeaderCell
         header.app = app
         return header
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 120)
+        return CGSize(width: collectionView.frame.width, height: 170)
     }
 
     // MARK: BODY
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailHeaderId, for: indexPath) as? DetailHeaderCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotId, for: indexPath) as? ScreenshotsCell else {
             return UICollectionViewCell()
         }
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 200)
     }
 }
