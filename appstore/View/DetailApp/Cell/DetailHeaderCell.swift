@@ -12,9 +12,15 @@ class DetailHeaderCell: UICollectionViewCell {
 
     var app: App? {
         didSet {
-            if let imageName = app?.imageName {
-                logoImageView.image = UIImage(named: imageName)
+            guard let imageName = app?.imageName else {
+                return assertionFailure()
             }
+            guard let name = app?.name else {
+                return assertionFailure()
+            }
+
+            logoImageView.image = UIImage(named: imageName)
+            nameLabel.text = name
         }
     }
 
@@ -29,7 +35,17 @@ class DetailHeaderCell: UICollectionViewCell {
     let segmentedController: UISegmentedControl = {
         let segmentedController = UISegmentedControl(items: ["Details", "Reviews", "Related"])
         segmentedController.translatesAutoresizingMaskIntoConstraints = false
+        segmentedController.tintColor = UIColor.darkGray
+        segmentedController.selectedSegmentIndex = 0
         return segmentedController
+    }()
+
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Test"
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override init(frame: CGRect) {
@@ -45,6 +61,7 @@ class DetailHeaderCell: UICollectionViewCell {
     func setupViews() {
         addSubview(logoImageView)
         addSubview(segmentedController)
+        addSubview(nameLabel)
     }
 
     func setupConstraints() {
@@ -57,5 +74,11 @@ class DetailHeaderCell: UICollectionViewCell {
         segmentedController.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
         segmentedController.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
         segmentedController.heightAnchor.constraint(equalToConstant: 34).isActive = true
+
+        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 8).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
+        nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
     }
 }
