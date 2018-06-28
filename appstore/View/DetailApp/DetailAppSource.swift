@@ -7,6 +7,7 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
 
     private let detailHeaderId = "detailHeaderId"
     private let screenshotId = "screenshotId"
+    private let detailId = "detailId"
 
     var app: App {
         didSet {
@@ -26,6 +27,7 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
                                 forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                 withReuseIdentifier: detailHeaderId)
         collectionView.register(ScreenshotsCell.self, forCellWithReuseIdentifier: screenshotId)
+        collectionView.register(DetailDescriptionCell.self, forCellWithReuseIdentifier: detailId)
     }
 
     // MARK: HEADER
@@ -51,14 +53,22 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
     // MARK: BODY
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 1
+        return 2
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 1 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailId,
+                                                                for: indexPath) as? DetailDescriptionCell else {
+                return UICollectionViewCell()
+            }
+            cell.desc = app.desc
+//            cell.descriptionTextView.attributedText = descriptionAttributedText()
+            return cell
+        }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotId,
-                                                            for: indexPath) as? ScreenshotsCell
-        else {
+                                                            for: indexPath) as? ScreenshotsCell else {
             return UICollectionViewCell()
         }
         guard let image = app.screenshots else {
@@ -72,4 +82,22 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
                         layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 200)
     }
+
+//    private func descriptionAttributedText() -> NSAttributedString {
+//        let attributedText = NSMutableAttributedString(string: "Description\n",
+//                                                       attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
+//        let style = NSMutableParagraphStyle()
+//        style.lineSpacing = 10
+//        let range = NSRange(location: 0, length: attributedText.string.count)
+//        attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: range)
+//        guard let description = app.desc else {
+//            return attributedText
+//        }
+//        attributedText.append(NSAttributedString(string: description,
+//                                                 attributes: [
+//                                                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11),
+//                                                     NSAttributedStringKey.foregroundColor: UIColor.darkGray
+//        ]))
+//        return attributedText
+//    }
 }
