@@ -1,7 +1,6 @@
 import UIKit
 
 class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
     private let cellId = "cellId"
 
     var images: [String]? {
@@ -18,7 +17,7 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         setupConstraints()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -40,19 +39,25 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
     }
 
     func setupConstraints() {
-        //CollectionView Constraints
+        // CollectionView Constraints
         appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
         appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        guard let items = self.images?.count else {
+            return 0
+        }
+        return items
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ScreenshotImageCell else {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
+                                                            for: indexPath) as? ScreenshotImageCell
+        else {
             return UICollectionViewCell()
         }
         guard let imageName = images?[indexPath.row] else {
@@ -62,7 +67,9 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout _: UICollectionViewLayout,
+                        sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: 200, height: collectionView.frame.height - 28)
     }
 }
