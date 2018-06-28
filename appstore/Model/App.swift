@@ -19,8 +19,8 @@ class App: NSObject {
     var appInformation: NSNumber?
 
     override func setValue(_ value: Any?, forKey key: String) {
-        if key == "description"{
-            self.desc = value as? String
+        if key == "description" {
+            desc = value as? String
         } else {
             super.setValue(value, forKey: key)
         }

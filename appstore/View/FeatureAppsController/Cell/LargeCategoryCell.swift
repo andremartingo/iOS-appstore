@@ -1,7 +1,6 @@
 import UIKit
 
 class LargeCategoryCell: CategoryCell {
-
     private let largeAppCellId = "largeAppCellId"
 
     override func setupViews() {
@@ -17,8 +16,7 @@ class LargeCategoryCell: CategoryCell {
         return cell
     }
 
-    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: frame.height-32)
+    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: frame.height - 32)
     }
-
 }

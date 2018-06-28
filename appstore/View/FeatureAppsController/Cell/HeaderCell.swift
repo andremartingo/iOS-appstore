@@ -4,7 +4,7 @@ class HeaderCell: CategoryCell {
     private let bannerCellId = "bannerCellId"
 
     override func setupViews() {
-        //super.setupViews()
+        // super.setupViews()
         appsCollectionView.delegate = self
         appsCollectionView.dataSource = self
         appsCollectionView.register(BannerCell.self, forCellWithReuseIdentifier: bannerCellId)
@@ -23,11 +23,11 @@ class HeaderCell: CategoryCell {
         return cell
     }
 
-    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width/2 + 50, height: frame.height)
+    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+        return CGSize(width: frame.width / 2 + 50, height: frame.height)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

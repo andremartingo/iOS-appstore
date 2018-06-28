@@ -1,5 +1,4 @@
 protocol Repository {
-
     typealias FeatureCategoriesHandler = (_ result: FeatureApp?, _ error: Error?) -> Void
 
     func getFeaturedCategories(completionHandler: @escaping FeatureCategoriesHandler)

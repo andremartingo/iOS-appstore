@@ -23,7 +23,7 @@ class AppCell: UICollectionViewCell {
     }()
 
     let nameLabel: UILabel = {
-        let label =  UILabel()
+        let label = UILabel()
         label.text = "Disney Build It: Frozen"
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 2
@@ -34,7 +34,7 @@ class AppCell: UICollectionViewCell {
     var nameHeightConstraint: NSLayoutConstraint?
 
     let categoryLabel: UILabel = {
-        let label =  UILabel()
+        let label = UILabel()
         label.text = "Entertainment"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.darkGray
@@ -43,7 +43,7 @@ class AppCell: UICollectionViewCell {
     }()
 
     let priceLabel: UILabel = {
-        let label =  UILabel()
+        let label = UILabel()
         label.text = "$3.99"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.darkGray
@@ -51,7 +51,7 @@ class AppCell: UICollectionViewCell {
         return label
     }()
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -61,25 +61,25 @@ class AppCell: UICollectionViewCell {
         addSubview(categoryLabel)
         addSubview(priceLabel)
 
-        //Logo Constraints
+        // Logo Constraints
         logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         logoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: frame.width).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
 
-        //NameLabel Constraints
+        // NameLabel Constraints
         nameLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 2).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        self.nameHeightConstraint = nameLabel.heightAnchor.constraint(equalToConstant: 40)
+        nameHeightConstraint = nameLabel.heightAnchor.constraint(equalToConstant: 40)
         nameLabel.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
 
-        //Category Constraints
+        // Category Constraints
         categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 38).isActive = true
         categoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         categoryLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         categoryLabel.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
 
-        //Price Constraints
+        // Price Constraints
         priceLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 56).isActive = true
         priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -93,7 +93,7 @@ class AppCell: UICollectionViewCell {
             let attribute = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
             let option = NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin)
             let rect = NSString(string: name).boundingRect(with: CGSize(width: frame.width, height: 1000), options: option, attributes: attribute, context: nil)
-            //If rect.height > 20 = Two Lines Description
+            // If rect.height > 20 = Two Lines Description
             if rect.height > 20 {
                 categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 38).isActive = true
                 priceLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 56).isActive = true
@@ -116,5 +116,4 @@ class AppCell: UICollectionViewCell {
             logoImageView.image = UIImage(named: imageName)
         }
     }
-
 }

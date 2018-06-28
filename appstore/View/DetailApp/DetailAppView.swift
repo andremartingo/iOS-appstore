@@ -1,7 +1,6 @@
 import UIKit
 
 class DetailAppView: UIView {
-
     private let detailHeaderId = "detailHeaderId"
 
     override init(frame: CGRect) {
@@ -10,7 +9,7 @@ class DetailAppView: UIView {
         setupConstraints()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -28,11 +27,10 @@ class DetailAppView: UIView {
     }
 
     func setupConstraints() {
-        //CollectionView Constraints
-        appsCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
-        appsCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
-        appsCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
-        appsCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+        // CollectionView Constraints
+        appsCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        appsCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
+        appsCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        appsCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
     }
-
 }

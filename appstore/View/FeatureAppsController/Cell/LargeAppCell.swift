@@ -2,7 +2,7 @@ class LargeAppCell: AppCell {
     override func setupViews() {
         logoImageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         addSubview(logoImageView)
-        //Logo Constraints
+        // Logo Constraints
         logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         logoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -14).isActive = true
         logoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true

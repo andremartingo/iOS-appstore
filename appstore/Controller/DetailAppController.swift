@@ -1,7 +1,6 @@
 import UIKit
 
 class DetailAppController: UIViewController {
-
     private let detailHeaderId = "detailHeaderId"
     var mainView: DetailAppView!
     var mainSource: DetailAppSource?
@@ -28,7 +27,7 @@ class DetailAppController: UIViewController {
     }
 
     func getAppById(appId: NSNumber) {
-        store?.getAppById(appId: appId.intValue, { (appDetail, _) in
+        store?.getAppById(appId: appId.intValue, { appDetail, _ in
             guard let app = appDetail else {
                 return assertionFailure()
             }

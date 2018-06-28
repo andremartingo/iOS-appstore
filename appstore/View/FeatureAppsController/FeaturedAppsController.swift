@@ -9,7 +9,6 @@
 import UIKit
 
 class FeaturedAppsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
     let cellId = "cellId"
     let largeCellId = "largeCellId"
     let headerId = "headerId"
@@ -21,7 +20,7 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     override func viewDidLoad() {
         navigationItem.title = "Feature Apps"
         super.viewDidLoad()
-        presenter.getFeaturedCategories { (result, _) in
+        presenter.getFeaturedCategories { result, _ in
             self.featureApp = result
             self.appCategories = result?.appCategories
             performUIUpdatesOnMain {
@@ -42,7 +41,8 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     }
 
     // MARK: HEADER
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 120)
     }
 
@@ -55,7 +55,8 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
     }
 
     // MARK: Cells
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+    override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         if let count = appCategories?.count {
             return count
         }
@@ -70,7 +71,6 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
             cell.category = appCategories?[indexPath.item]
             cell.featureAppsViewController = self
             return cell
-
         }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CategoryCell else {
             return UICollectionViewCell()
@@ -80,9 +80,9 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if(indexPath.item == 2) {
-            return CGSize(width: view.frame.width, height: 160 )
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 2 {
+            return CGSize(width: view.frame.width, height: 160)
         }
         return CGSize(width: view.frame.width, height: 230)
     }

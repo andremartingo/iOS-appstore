@@ -1,7 +1,6 @@
 import UIKit
 
 class Category: NSObject {
-
     @objc
     var type: String?
     @objc

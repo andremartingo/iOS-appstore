@@ -1,7 +1,6 @@
 import UIKit
 
 class FeatureApp: NSObject {
-
     @objc
     var bannerCategory: Category?
     @objc
@@ -10,7 +9,7 @@ class FeatureApp: NSObject {
     override func setValue(_ value: Any?, forKey key: String) {
         if key == "categories" {
             appCategories = [Category]()
-            guard let value = value as?  [[String: Any]] else {
+            guard let value = value as? [[String: Any]] else {
                 return assertionFailure()
             }
             for object in value {
@@ -18,9 +17,9 @@ class FeatureApp: NSObject {
                 category.setValuesForKeys(object)
                 appCategories?.append(category)
             }
-        } else if key == "bannerCategory"{
+        } else if key == "bannerCategory" {
             bannerCategory = Category()
-            guard let value = value as?  [String: AnyObject] else {
+            guard let value = value as? [String: AnyObject] else {
                 return assertionFailure()
             }
             bannerCategory?.setValuesForKeys(value)
@@ -28,5 +27,4 @@ class FeatureApp: NSObject {
             super.setValue(value, forKey: key)
         }
     }
-
 }

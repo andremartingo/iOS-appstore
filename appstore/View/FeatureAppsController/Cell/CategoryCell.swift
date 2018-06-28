@@ -1,7 +1,6 @@
 import UIKit
 
 class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
     private let appCellId = "appCellId"
 
     var featureAppsViewController: FeaturedAppsController?
@@ -20,21 +19,21 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         setupViews()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: Properties
 
     let sectionLabel: UILabel = {
-        let label =  UILabel()
+        let label = UILabel()
         label.text = "Best New Apps"
         label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    //Collection View Inside CategoryCell
+    // Collection View Inside CategoryCell
     let appsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -47,7 +46,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
 
     let dividerLine: UIView = {
         let view = UIView()
-                view.backgroundColor = UIColor(white: 0.4, alpha: 0.4)
+        view.backgroundColor = UIColor(white: 0.4, alpha: 0.4)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -59,14 +58,14 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         addSubview(appsCollectionView)
         addSubview(dividerLine)
 
-        //SectionLabel Constraints
+        // SectionLabel Constraints
         sectionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         sectionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
 
         sectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         sectionLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
 
-        //CollectionView Constraints
+        // CollectionView Constraints
         appsCollectionView.register(AppCell.self, forCellWithReuseIdentifier: appCellId)
         appsCollectionView.delegate = self
         appsCollectionView.dataSource = self
@@ -76,14 +75,13 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8).isActive = true
         appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
 
-        //DividerLine Constraints
+        // DividerLine Constraints
         dividerLine.topAnchor.constraint(equalTo: appsCollectionView.bottomAnchor, constant: 0).isActive = true
         dividerLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         dividerLine.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         if let items = category?.apps?.count {
             return items
         }
@@ -98,17 +96,17 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         return cell
     }
 
-    //AppCell Size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: frame.height-30)
+    // AppCell Size
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: frame.height - 30)
     }
 
-    //Collection View Margin
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    // Collection View Margin
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let app = category?.apps?[indexPath.item] {
             featureAppsViewController?.showDetailAppController(app: app)
         }

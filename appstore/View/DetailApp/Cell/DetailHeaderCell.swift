@@ -1,7 +1,6 @@
 import UIKit
 
 class DetailHeaderCell: UICollectionViewCell {
-
     var app: App? {
         didSet {
             if let imageName = app?.imageName {
@@ -45,7 +44,7 @@ class DetailHeaderCell: UICollectionViewCell {
     let buyButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("BUY", for: .normal)
-        button.layer.borderColor = UIColor(red: 0, green: 129/255, blue: 250/255, alpha: 1).cgColor
+        button.layer.borderColor = UIColor(red: 0, green: 129 / 255, blue: 250 / 255, alpha: 1).cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 5
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +64,7 @@ class DetailHeaderCell: UICollectionViewCell {
         setupConstraints()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -98,9 +97,8 @@ class DetailHeaderCell: UICollectionViewCell {
         buyButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
         buyButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
-        dividerLine.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        dividerLine.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         dividerLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         dividerLine.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-
     }
 }

@@ -272,6 +272,7 @@
 				3018CA9320CF13F900CCA588 /* Sources */,
 				3018CA9420CF13F900CCA588 /* Frameworks */,
 				3018CA9520CF13F900CCA588 /* Resources */,
+				302DC20C20E564B300471997 /* SwiftFormat */,
 				305A75C620E29EA100ACB45B /* SwiftLint */,
 			);
 			buildRules = (
@@ -393,6 +394,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		302DC20C20E564B300471997 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\nswiftformat .\nelse\necho \"warning: Swiftformat not installed, download from https://github.com/realm/Swiftformat\"\nfi";
+		};
 		305A75C620E29EA100ACB45B /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
