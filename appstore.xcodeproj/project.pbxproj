@@ -138,6 +138,7 @@
 				3018CAA620CF13F900CCA588 /* Info.plist */,
 				307585B620D7ACB00030F5D3 /* Support */,
 				307585B520D7AC930030F5D3 /* View */,
+				302DC20B20E3C18600471997 /* Controller */,
 				307585B420D7AC870030F5D3 /* Presenter */,
 				307585B320D7AC790030F5D3 /* Repository */,
 				307585A820D79F4E0030F5D3 /* Model */,
@@ -177,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				3035B50A20E0399C006090C8 /* DetailAppView.swift */,
-				302D328520DA688E00BEADA8 /* DetailAppController.swift */,
 				305A75C420E2243600ACB45B /* DetailAppSource.swift */,
 				302D328B20DA6C6400BEADA8 /* Cell */,
 			);
@@ -192,6 +192,14 @@
 				302DC20920E3A54A00471997 /* ScreenshotImageCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		302DC20B20E3C18600471997 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				302D328520DA688E00BEADA8 /* DetailAppController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		307585A820D79F4E0030F5D3 /* Model */ = {
