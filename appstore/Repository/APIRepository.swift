@@ -6,13 +6,14 @@ class APIRepository: Repository {
         let url: String = "https://api.letsbuildthatapp.com/appstore/featured"
         URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) -> Void in
             /* GUARD: Was there an error? */
-            guard (error == nil) else {
+            guard error == nil else {
                 print("There was an error with your request: \(error!)")
                 return
             }
 
             /* GUARD: Did we get a successful 2XX response? */
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode,
+                200..<299 ~= statusCode else {
                 print("Your request returned a status code other than 2xx!")
                 return
             }
