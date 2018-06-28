@@ -63,8 +63,7 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
                                                                 for: indexPath) as? DetailDescriptionCell else {
                 return UICollectionViewCell()
             }
-            cell.desc = app.desc
-//            cell.descriptionTextView.attributedText = descriptionAttributedText()
+            cell.descriptionTextView.attributedText = descriptionAttributedText()
             return cell
         }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotId,
@@ -79,25 +78,36 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func collectionView(_ collectionView: UICollectionView,
-                        layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+                        layout _: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 1 {
+            return CGSize(width: collectionView.frame.width, height: getTextFieldHeight() + 30)
+        }
         return CGSize(width: collectionView.frame.width, height: 200)
     }
 
-//    private func descriptionAttributedText() -> NSAttributedString {
-//        let attributedText = NSMutableAttributedString(string: "Description\n",
-//                                                       attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
-//        let style = NSMutableParagraphStyle()
-//        style.lineSpacing = 10
-//        let range = NSRange(location: 0, length: attributedText.string.count)
-//        attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: range)
-//        guard let description = app.desc else {
-//            return attributedText
-//        }
-//        attributedText.append(NSAttributedString(string: description,
-//                                                 attributes: [
-//                                                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11),
-//                                                     NSAttributedStringKey.foregroundColor: UIColor.darkGray
-//        ]))
-//        return attributedText
-//    }
+    private func descriptionAttributedText() -> NSAttributedString {
+        let attributedText = NSMutableAttributedString(string: "Description\n",
+                                                       attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        let range = NSRange(location: 0, length: attributedText.string.count)
+        attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: range)
+        guard let description = app.desc else {
+            return attributedText
+        }
+        attributedText.append(NSAttributedString(string: description,
+                                                 attributes: [
+                                                     NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11),
+                                                     NSAttributedStringKey.foregroundColor: UIColor.darkGray
+        ]))
+        return attributedText
+    }
+
+    private func getTextFieldHeight() -> CGFloat {
+        let dummySize = CGSize(width: collectionView.frame.width - 8 - 8, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin)
+        let rect = descriptionAttributedText().boundingRect(with: dummySize, options: options, context: nil)
+        return rect.height
+    }
 }
