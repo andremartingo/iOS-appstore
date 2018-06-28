@@ -1,11 +1,3 @@
-//
-//  DetailAppSource.swift
-//  appstore
-//
-//  Created by André Martingo on 26/06/2018.
-//  Copyright © 2018 André Martingo. All rights reserved.
-//
-
 import UIKit
 import Foundation
 

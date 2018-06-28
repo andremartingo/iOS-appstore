@@ -1,11 +1,3 @@
-//
-//  FeatureApp.swift
-//  appstore
-//
-//  Created by André Martingo on 19/06/2018.
-//  Copyright © 2018 André Martingo. All rights reserved.
-//
-
 import UIKit
 
 class FeatureApp: NSObject {
