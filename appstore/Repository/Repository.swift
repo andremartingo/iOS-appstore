@@ -3,5 +3,5 @@ protocol Repository {
 
     func getFeaturedCategories(completionHandler: @escaping FeatureCategoriesHandler)
 
-    func getAppById(appId: Int, _ completionHandlergetFeaturedCategories: @escaping (_ result: App?, _ error: Error?) -> Void)
+    func getAppById(appId: Int, _ completionHandler: @escaping (_ result: App?, _ error: Error?) -> Void)
 }

@@ -36,7 +36,7 @@ class APIRepository: Repository {
         }.resume()
     }
 
-    func getAppById(appId: Int, _ completionHandlergetFeaturedCategories: @escaping (_ result: App?, _ error: Error?) -> Void) {
+    func getAppById(appId: Int, _ completionHandler: @escaping (_ result: App?, _ error: Error?) -> Void) {
         let url: String = "https://api.letsbuildthatapp.com/appstore/appdetail?id=\(appId)"
         URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) -> Void in
             /* GUARD: Was there an error? */
@@ -63,7 +63,7 @@ class APIRepository: Repository {
                 if let json = json as? [String: AnyObject] {
                     appDetail.setValuesForKeys(json)
                 }
-                completionHandlergetFeaturedCategories(appDetail, nil)
+                completionHandler(appDetail, nil)
             } catch let err {
                 print(err)
             }
