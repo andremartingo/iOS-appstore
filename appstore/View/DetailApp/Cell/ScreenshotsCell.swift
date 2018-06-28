@@ -28,6 +28,7 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
 
