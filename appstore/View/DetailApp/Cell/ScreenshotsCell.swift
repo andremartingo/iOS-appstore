@@ -1,11 +1,3 @@
-//
-//  HeaderCell.swift
-//  appstore
-//
-//  Created by André Martingo on 20/06/2018.
-//  Copyright © 2018 André Martingo. All rights reserved.
-//
-
 import UIKit
 
 class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -27,6 +19,7 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
