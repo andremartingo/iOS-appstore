@@ -28,11 +28,11 @@ class DetailAppController: UIViewController {
     }
 
     func getAppById(appId: NSNumber) {
-        store?.getAppById(appId: appId, { (appDetail, _) in
-            self.app = appDetail
-            performUIUpdatesOnMain {
-                self.mainView.appsCollectionView.reloadData()
+        store?.getAppById(appId: appId.intValue, { (appDetail, _) in
+            guard let app = appDetail else {
+                return assertionFailure()
             }
+            self.mainSource?.app = app
         })
     }
 }

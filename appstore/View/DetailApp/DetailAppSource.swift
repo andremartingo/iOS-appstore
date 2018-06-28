@@ -8,7 +8,13 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
     private let detailHeaderId = "detailHeaderId"
     private let screenshotId = "screenshotId"
 
-    let app: App
+    var app: App {
+        didSet {
+            performUIUpdatesOnMain {
+                self.collectionView.reloadData()
+            }
+        }
+    }
 
     init(collection: UICollectionView, app: App) {
         self.collectionView = collection
@@ -42,6 +48,13 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotId, for: indexPath) as? ScreenshotsCell else {
             return UICollectionViewCell()
+        }
+//        guard let image = app.screenshots else {
+//            return UICollectionViewCell()
+//        }
+//        cell.images = image
+        if let image = app.screenshots {
+            cell.images = image
         }
         return cell
     }

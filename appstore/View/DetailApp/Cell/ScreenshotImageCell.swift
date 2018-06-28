@@ -15,7 +15,8 @@ class ScreenshotImageCell: UICollectionViewCell {
     let screenshotImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = UIColor.green
+        imageView.backgroundColor = UIColor.clear
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

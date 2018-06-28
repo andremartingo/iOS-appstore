@@ -8,7 +8,7 @@ class FeaturedAppsPresenter {
         self.repository = repository
     }
 
-    func getFeaturedCategories(_ completionHandlergetFeaturedCategories: @escaping (_ result: FeatureApp?, _ error: NSError?) -> Void) {
+    func getFeaturedCategories(_ completionHandlergetFeaturedCategories: @escaping (_ result: FeatureApp?, _ error: Error?) -> Void) {
         repository.getFeaturedCategories { (result, error) in
             completionHandlergetFeaturedCategories(result, error)
         }

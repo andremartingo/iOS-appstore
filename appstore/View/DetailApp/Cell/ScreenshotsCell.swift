@@ -4,6 +4,14 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
 
     private let cellId = "cellId"
 
+    var images: [String]? {
+        didSet {
+            performUIUpdatesOnMain {
+                self.appsCollectionView.reloadData()
+            }
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -47,6 +55,10 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? ScreenshotImageCell else {
             return UICollectionViewCell()
         }
+        guard let imageName = images?[indexPath.row] else {
+            return cell
+        }
+        cell.screenshotImageView.image = UIImage(named: imageName)
         return cell
     }
 

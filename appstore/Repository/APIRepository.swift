@@ -2,7 +2,7 @@ import Foundation
 
 class APIRepository: Repository {
 
-    func getFeaturedCategories(_ completionHandlergetFeaturedCategories: @escaping (_ result: FeatureApp?, _ error: NSError?) -> Void) {
+    func getFeaturedCategories(completionHandler: @escaping (_ result: FeatureApp?, _ error: Error?) -> Void) {
         let url: String = "https://api.letsbuildthatapp.com/appstore/featured"
         URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) -> Void in
             /* GUARD: Was there an error? */
@@ -29,15 +29,15 @@ class APIRepository: Repository {
                 if let json = json as? [String: AnyObject] {
                     featureApp.setValuesForKeys(json)
                 }
-                completionHandlergetFeaturedCategories(featureApp, nil)
+                completionHandler(featureApp, nil)
             } catch let err {
                 print(err)
             }
         }.resume()
     }
 
-    func getAppById(appId: NSNumber, _ completionHandlergetFeaturedCategories: @escaping (_ result: App?, _ error: NSError?) -> Void) {
-        let url: String = "https://api.letsbuildthatapp.com/appstore/appdetail?id=\(appId.intValue)"
+    func getAppById(appId: Int, _ completionHandlergetFeaturedCategories: @escaping (_ result: App?, _ error: Error?) -> Void) {
+        let url: String = "https://api.letsbuildthatapp.com/appstore/appdetail?id=\(appId)"
         URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) -> Void in
             /* GUARD: Was there an error? */
             guard (error == nil) else {
