@@ -31,8 +31,16 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         return collectionView
     }()
 
+    let dividerLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.4, alpha: 0.4)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     func setupViews() {
         addSubview(appsCollectionView)
+        addSubview(dividerLine)
         appsCollectionView.register(ScreenshotImageCell.self, forCellWithReuseIdentifier: cellId)
         appsCollectionView.delegate = self
         appsCollectionView.dataSource = self
@@ -44,6 +52,10 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
         appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
         appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+
+        dividerLine.topAnchor.constraint(equalTo: appsCollectionView.bottomAnchor, constant: 5).isActive = true
+        dividerLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        dividerLine.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
@@ -70,6 +82,6 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView,
                         layout _: UICollectionViewLayout,
                         sizeForItemAt _: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: collectionView.frame.height - 28)
+        return CGSize(width: 240, height: collectionView.frame.height - 28)
     }
 }
