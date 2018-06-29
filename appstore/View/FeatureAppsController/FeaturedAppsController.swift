@@ -31,7 +31,9 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(LargeCategoryCell.self, forCellWithReuseIdentifier: largeCellId)
-        collectionView?.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+        collectionView?.register(HeaderCell.self,
+                                 forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                 withReuseIdentifier: headerId)
     }
 
     func showDetailAppController(app: App) {
@@ -42,12 +44,17 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
 
     // MARK: HEADER
 
-    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 120)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as? HeaderCell else {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                           withReuseIdentifier: headerId,
+                                                                           for: indexPath) as? HeaderCell else {
             return UICollectionReusableView()
         }
         header.category = featureApp?.bannerCategory
@@ -63,16 +70,19 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         return 0
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 2 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeCellId, for: indexPath) as? LargeCategoryCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeCellId,
+                                                                for: indexPath) as? LargeCategoryCell else {
                 return UICollectionViewCell()
             }
             cell.category = appCategories?[indexPath.item]
             cell.featureAppsViewController = self
             return cell
         }
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? CategoryCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId,
+                                                            for: indexPath) as? CategoryCell else {
             return UICollectionViewCell()
         }
         cell.category = appCategories?[indexPath.item]
@@ -80,7 +90,8 @@ class FeaturedAppsController: UICollectionViewController, UICollectionViewDelega
         return cell
     }
 
-    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 2 {
             return CGSize(width: view.frame.width, height: 160)
         }

@@ -92,7 +92,9 @@ class AppCell: UICollectionViewCell {
 
             let attribute = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
             let option = NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin)
-            let rect = NSString(string: name).boundingRect(with: CGSize(width: frame.width, height: 1000), options: option, attributes: attribute, context: nil)
+            let rect = NSString(string: name).boundingRect(with: CGSize(width: frame.width, height: 1000),
+                                                           options: option,
+                                                           attributes: attribute, context: nil)
             // If rect.height > 20 = Two Lines Description
             if rect.height > 20 {
                 categoryLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 38).isActive = true

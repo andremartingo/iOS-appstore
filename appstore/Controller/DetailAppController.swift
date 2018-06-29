@@ -21,7 +21,7 @@ class DetailAppController: UIViewController {
         super.viewDidLoad()
         self.mainSource = DetailAppSource(collection: mainView.appsCollectionView, app: app!)
         self.store = APIRepository()
-        if let appId = app?.id {
+        if let appId = app?.appId {
             self.getAppById(appId: appId)
         }
     }

@@ -1,5 +1,5 @@
 class App: Decodable {
-    var id: Int?
+    var appId: Int?
     var name: String?
     var category: String?
     var imageName: String?
@@ -9,7 +9,7 @@ class App: Decodable {
     var appInformation: [AppInformation]?
 
     enum CodingKeys: String, CodingKey {
-        case id = "Id"
+        case appId = "Id"
         case name = "Name"
         case category = "Category"
         case imageName = "ImageName"

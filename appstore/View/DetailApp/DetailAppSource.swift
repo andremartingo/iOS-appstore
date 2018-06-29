@@ -87,8 +87,9 @@ class DetailAppSource: NSObject, UICollectionViewDelegate, UICollectionViewDataS
     }
 
     private func descriptionAttributedText() -> NSAttributedString {
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)]
         let attributedText = NSMutableAttributedString(string: "Description\n",
-                                                       attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)])
+                                                       attributes: attributes)
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10
         let range = NSRange(location: 0, length: attributedText.string.count)

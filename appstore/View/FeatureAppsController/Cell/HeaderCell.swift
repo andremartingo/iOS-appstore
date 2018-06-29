@@ -15,19 +15,23 @@ class HeaderCell: CategoryCell {
         appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannerCellId, for: indexPath) as? BannerCell else {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannerCellId,
+                                                            for: indexPath) as? BannerCell else {
             return UICollectionViewCell()
         }
         cell.app = category?.apps?[indexPath.item]
         return cell
     }
 
-    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout,
+                                 sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: frame.width / 2 + 50, height: frame.height)
     }
 
-    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
+    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout,
+                                 insetForSectionAt _: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

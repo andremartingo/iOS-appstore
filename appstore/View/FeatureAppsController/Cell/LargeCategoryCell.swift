@@ -8,15 +8,18 @@ class LargeCategoryCell: CategoryCell {
         appsCollectionView.register(LargeAppCell.self, forCellWithReuseIdentifier: largeAppCellId)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeAppCellId, for: indexPath) as? LargeAppCell else {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeAppCellId,
+                                                            for: indexPath) as? LargeAppCell else {
             return UICollectionViewCell()
         }
         cell.app = category?.apps?[indexPath.item]
         return cell
     }
 
-    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
+    override func collectionView(_: UICollectionView, layout _: UICollectionViewLayout,
+                                 sizeForItemAt _: IndexPath) -> CGSize {
         return CGSize(width: 200, height: frame.height - 32)
     }
 }

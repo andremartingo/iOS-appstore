@@ -84,7 +84,9 @@ class DetailHeaderCell: UICollectionViewCell {
 
         segmentedController.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8).isActive = true
         segmentedController.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40).isActive = true
-        segmentedController.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
+        segmentedController.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
+                                                      constant: -40).isActive = true
+
         segmentedController.heightAnchor.constraint(equalToConstant: 34).isActive = true
 
         nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14).isActive = true

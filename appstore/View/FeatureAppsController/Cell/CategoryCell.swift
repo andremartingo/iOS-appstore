@@ -1,6 +1,7 @@
 import UIKit
 
-class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CategoryCell: UICollectionViewCell, UICollectionViewDelegate,
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private let appCellId = "appCellId"
 
     var featureAppsViewController: FeaturedAppsController?
@@ -88,8 +89,10 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appCellId, for: indexPath) as? AppCell else {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appCellId,
+                                                            for: indexPath) as? AppCell else {
             return UICollectionViewCell()
         }
         cell.app = category?.apps?[indexPath.item]
@@ -102,7 +105,8 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     }
 
     // Collection View Margin
-    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, insetForSectionAt _: Int) -> UIEdgeInsets {
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout,
+                        insetForSectionAt _: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
     }
 
