@@ -1,6 +1,7 @@
 import UIKit
 
-class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ScreenshotsCell: UICollectionViewCell, UICollectionViewDelegate,
+    UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private let cellId = "cellId"
 
     var images: [String]? {
