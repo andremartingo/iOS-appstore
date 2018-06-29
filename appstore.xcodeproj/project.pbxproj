@@ -15,6 +15,7 @@
 		3018CAA520CF13F900CCA588 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3018CAA320CF13F900CCA588 /* LaunchScreen.storyboard */; };
 		3018CAB020CF13F900CCA588 /* appstoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018CAAF20CF13F900CCA588 /* appstoreTests.swift */; };
 		3018CABB20CF13FA00CCA588 /* appstoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3018CABA20CF13FA00CCA588 /* appstoreUITests.swift */; };
+		301B687820E6B12D0009453A /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B687720E6B12D0009453A /* AppInformation.swift */; };
 		302D328420D9A9C100BEADA8 /* FeatureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D328320D9A9C100BEADA8 /* FeatureApp.swift */; };
 		302D328620DA688E00BEADA8 /* DetailAppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D328520DA688E00BEADA8 /* DetailAppController.swift */; };
 		302D328A20DA6C6100BEADA8 /* DetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302D328920DA6C6100BEADA8 /* DetailHeaderCell.swift */; };
@@ -68,6 +69,7 @@
 		3018CAB620CF13F900CCA588 /* appstoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appstoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3018CABA20CF13FA00CCA588 /* appstoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appstoreUITests.swift; sourceTree = "<group>"; };
 		3018CABC20CF13FA00CCA588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		301B687720E6B12D0009453A /* AppInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
 		302D328320D9A9C100BEADA8 /* FeatureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureApp.swift; sourceTree = "<group>"; };
 		302D328520DA688E00BEADA8 /* DetailAppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppController.swift; sourceTree = "<group>"; };
 		302D328920DA6C6100BEADA8 /* DetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCell.swift; sourceTree = "<group>"; };
@@ -208,9 +210,10 @@
 		307585A820D79F4E0030F5D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				302D328320D9A9C100BEADA8 /* FeatureApp.swift */,
 				307585A920D79F5F0030F5D3 /* Category.swift */,
 				307585AB20D79F680030F5D3 /* App.swift */,
-				302D328320D9A9C100BEADA8 /* FeatureApp.swift */,
+				301B687720E6B12D0009453A /* AppInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				307585BB20D7E65D0030F5D3 /* AppCell.swift in Sources */,
 				307585AC20D79F680030F5D3 /* App.swift in Sources */,
 				302D328620DA688E00BEADA8 /* DetailAppController.swift in Sources */,
+				301B687820E6B12D0009453A /* AppInformation.swift in Sources */,
 				307585AE20D7AAFC0030F5D3 /* FeaturedAppsPresenter.swift in Sources */,
 				307585B820D7C81C0030F5D3 /* GCDBlackBox.swift in Sources */,
 				305A75C520E2243600ACB45B /* DetailAppSource.swift in Sources */,

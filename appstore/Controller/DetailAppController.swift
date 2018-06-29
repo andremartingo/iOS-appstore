@@ -26,8 +26,8 @@ class DetailAppController: UIViewController {
         }
     }
 
-    func getAppById(appId: NSNumber) {
-        store?.getAppById(appId: appId.intValue, { appDetail, _ in
+    func getAppById(appId: Int) {
+        store?.getAppById(appId: appId, { appDetail, _ in
             guard let app = appDetail else {
                 return assertionFailure()
             }

@@ -1,28 +1,21 @@
-import UIKit
-
-class App: NSObject {
-    @objc
-    var id: NSNumber?
-    @objc
+class App: Decodable {
+    var id: Int?
     var name: String?
-    @objc
     var category: String?
-    @objc
     var imageName: String?
-    @objc
-    var price: NSNumber?
-    @objc
+    var price: Double?
     var screenshots: [String]?
-    @objc
     var desc: String?
-    @objc
-    var appInformation: NSNumber?
+    var appInformation: [AppInformation]?
 
-    override func setValue(_ value: Any?, forKey key: String) {
-        if key == "description" {
-            desc = value as? String
-        } else {
-            super.setValue(value, forKey: key)
-        }
+    enum CodingKeys: String, CodingKey {
+        case id = "Id"
+        case name = "Name"
+        case category = "Category"
+        case imageName = "ImageName"
+        case price = "Price"
+        case screenshots = "Screenshots"
+        case desc = "description"
+        case appInformation
     }
 }

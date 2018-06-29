@@ -9,7 +9,7 @@ class DetailHeaderCell: UICollectionViewCell {
             if let name = app?.name {
                 nameLabel.text = name
             }
-            if let price = app?.price?.stringValue {
+            if let price = app?.price {
                 buyButton.setTitle("$\(price)", for: .normal)
             }
         }

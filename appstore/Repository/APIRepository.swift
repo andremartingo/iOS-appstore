@@ -24,11 +24,7 @@ class APIRepository: Repository {
             }
 
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
-                let featureApp = FeatureApp()
-                if let json = json as? [String: AnyObject] {
-                    featureApp.setValuesForKeys(json)
-                }
+                let featureApp = try JSONDecoder().decode(FeatureApp.self, from: data)
                 completionHandler(featureApp, nil)
             } catch let err {
                 print(err)
@@ -58,11 +54,7 @@ class APIRepository: Repository {
             }
 
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as AnyObject
-                let appDetail = App()
-                if let json = json as? [String: AnyObject] {
-                    appDetail.setValuesForKeys(json)
-                }
+                let appDetail = try JSONDecoder().decode(App.self, from: data)
                 completionHandler(appDetail, nil)
             } catch let err {
                 print(err)
